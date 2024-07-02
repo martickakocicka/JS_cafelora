@@ -8,12 +8,17 @@ import { Footer } from "../components/Footer/footer";
 import "../global.css";
 import "./index.css";
 
+const response = await fetch("http://localhost:4000/api/drinks");
+const json = await response.json();
+const napoje = json.data;
+console.log(json);
+
 document.querySelector("#root").innerHTML = render(
   <div className="page">
     <Header />
     <main>
       <Banner />
-      <Menu />
+      <Menu drinks={napoje} />
       <Gallery />
       <Contact />
     </main>
@@ -25,8 +30,3 @@ document.querySelector(".nav-btn").addEventListener("click", () => {
   const tlacitko = document.querySelector(".rollout-nav");
   tlacitko.classList.toggle("nav-closed");
 });
-
-/*document.querySelector(".rollout-nav").addEventListener("click",()=>{
-  const tlacitko = document.querySelector(".rollout-nav");
-  tlacitko.classList.toggle("nav-closed");
-})*/
