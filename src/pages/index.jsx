@@ -30,3 +30,8 @@ document.querySelector(".nav-btn").addEventListener("click", () => {
   const tlacitko = document.querySelector(".rollout-nav");
   tlacitko.classList.toggle("nav-closed");
 });
+
+document.querySelector(".rollout-nav").addEventListener("click", () => {
+  const tlacitko = document.querySelector(".rollout-nav");
+  tlacitko.classList.toggle("nav-closed");
+});

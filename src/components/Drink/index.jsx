@@ -2,6 +2,8 @@ import "./style.css";
 import { Layer } from "../Layer/layer";
 
 export const Drink = ({ id, name, ordered, image, layers }) => {
+  const objednavka = ordered === true ? "Zrušit" : "Objednat";
+  const tridaOrdered = ordered ? "order-btn order-btn--ordered" : "order-btn";
   return (
     <div className="drink" id={id}>
       <div className="drink__product">
@@ -17,7 +19,7 @@ export const Drink = ({ id, name, ordered, image, layers }) => {
       </div>
       <form className="drink__controls">
         <input type="hidden" className="order-id" value="0" />
-        <button className="order-btn">Objednat</button>
+        <button className={tridaOrdered}>{objednavka}</button>
       </form>
     </div>
   );
