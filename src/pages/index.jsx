@@ -35,3 +35,22 @@ document.querySelector(".rollout-nav").addEventListener("click", () => {
   const tlacitko = document.querySelector(".rollout-nav");
   tlacitko.classList.toggle("nav-closed");
 });
+
+const forms = document.querySelectorAll(".drink__controls");
+forms.forEach((form) => {
+  form.addEventListener("click", async (e) => {
+    console.log(form.dataset.id);
+    const body = [{ op: "replace", path: "/ordered", value: true }];
+    const response = await fetch(
+      `http://localhost:4000/api/drinks/${form.dataset.id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      }
+    );
+    console.log(response);
+  });
+});
