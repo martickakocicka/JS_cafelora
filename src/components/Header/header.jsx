@@ -1,13 +1,12 @@
 import "./header.css";
 
-export const Header = (showMenu) => {
-  const hide = !showMenu;
+export const Header = (props) => {
+  const navigaceClass = props.showMenu ? "navigation" : "navigation nav-hide";
   return (
     <header id="home">
       <div className="header__content container">
         <div className="site-logo"></div>
-
-        <div className="navigation" hidden={hide}>
+        <div className={navigaceClass}>
           <button className="nav-btn"></button>
           <nav className="rollout-nav nav-closed">
             <a href="#home">domů</a>
